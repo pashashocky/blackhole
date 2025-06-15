@@ -31,7 +31,7 @@ services:
       - ${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}:${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}/../../:rslave
       - ${BLACKHOLE_BASE_WATCH_PATH}/${BLACKHOLE_SONARR_PATH}:/${BLACKHOLE_BASE_WATCH_PATH}/${BLACKHOLE_SONARR_PATH}
       - ${BLACKHOLE_BASE_WATCH_PATH}/${BLACKHOLE_RADARR_PATH}:/${BLACKHOLE_BASE_WATCH_PATH}/${BLACKHOLE_RADARR_PATH}
-    profiles: [blackhole, blackhole_all, all]
+    # profiles: [blackhole, blackhole_all, all]
 
   repair_service:
     <<: *repair
@@ -41,7 +41,7 @@ services:
       - ${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}:${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}/../../:rslave
       - ${SONARR_ROOT_FOLDER}:${SONARR_ROOT_FOLDER}
       - ${RADARR_ROOT_FOLDER}:${RADARR_ROOT_FOLDER}
-    profiles: [repair, repair_all, all]
+    # profiles: [repair, repair_all, all]
 
   watchlist:
     build:
@@ -55,7 +55,7 @@ services:
     env_file:
       - .env
     restart: unless-stopped
-    profiles: [watchlist, all]
+    # profiles: [watchlist, all]
 
   plex_authentication:
     build:
